@@ -50,4 +50,21 @@ Route:: get('/tugas7', function (){
     return view('Tugas7');
 });
 
+route::get('uts', function () {
+    return view('uts');
+});
+route::get('utsproduk', function () {
+    $kode = ['BRG001', 'BRG002'];
+    $nama = ['Pena', 'Buku'];
+    $jenis = ['Alat Tulis', 'Alat Tulis'];
+    $harga = [2000, 1500];
+    $total = count($kode);
+    return view('utsproduk', compact('kode', 'nama', 'jenis', 'harga', 'total'));
+});
+route::get('utssimpan', function () {
+    $namap = ['Pilih Produk', 'Alat Tulis', 'elektronik', 'Sembako'];
+    $jumlah = count($namap);
+
+    return view('utssimpan', compact('namap', 'jumlah'));
+});
 
