@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\mahasiswaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,58 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    // return view('welcome');
-        return view('home');
+Route::resource('mahasiswa', mahasiswaController::class);
+
+Route::get('', function () {
+    return view('');
 });
-
-// Route::get("/profile",function () {
-//     $nama = ' Mirza';
-//     $Tgl_Lahir = ' 2003 05 26';
-//     return "profile Mirza" .$nama." Lahir Pada Tanggal" .$Tgl_Lahir ;
-// }) ;
-
-// Pertemuan kedua
-
-Route:: get('/profile', function (){
-    return view('Profile');
+Route::get('/profile', function () {
+    return view('profile');
 });
-
-Route:: get('/mahasiswa', function (){
-    return view('Mahasiswa');
+Route::get('/about', function () {
+    return view('about');
 });
-
-Route:: get('/home', function (){
-    return view('Home');
+Route::get('/tugas', function () {
+    return view('tugas');
 });
-
-Route:: get('/about', function (){
-    return view('About');
+Route::get('/home', function () {
+    return view('home');
 });
-
-Route:: get('/tugas', function (){
-    return view('Tugas');
-});
-
-Route:: get('/tugas7', function (){
-    return view('Tugas7');
-});
-
-route::get('uts', function () {
-    return view('uts');
-});
-route::get('utsproduk', function () {
-    $kode = ['BRG001', 'BRG002'];
-    $nama = ['Pena', 'Buku'];
-    $jenis = ['Alat Tulis', 'Alat Tulis'];
-    $harga = [2000, 1500];
-    $total = count($kode);
-    return view('utsproduk', compact('kode', 'nama', 'jenis', 'harga', 'total'));
-});
-route::get('utssimpan', function () {
-    $namap = ['Pilih Produk', 'Alat Tulis', 'elektronik', 'Sembako'];
-    $jumlah = count($namap);
-
-    return view('utssimpan', compact('namap', 'jumlah'));
-});
-
